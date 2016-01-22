@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <link href="../css/Hot.css" rel="stylesheet" />
+    <script src="../js/jquery-1.7.2.min.js"></script>
+    <script src="../js/echarts2.2.3/build/dist/echarts-all.js"></script>
+    <link href="../css/InfoWindow.css" rel="stylesheet" />
+    <link href="../js/slt/jquery-ui.css" rel="stylesheet" />
+    <link href="../js/slt/multislt/multislt.css" rel="stylesheet" />
+    <link href="../css/map.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/dijit/themes/tundra/tundra.css">
+    <script type="text/javascript" src="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/init.js"></script>
+    <script src="../js/heatmap/heatmap.js"></script>
+    <script src="../js/MapControl.js"></script>
+    <script src="../js/My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <script src="../js/Config.js"></script>
+    <script src="../js/slt/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="../js/slt/multislt/jquery.multiselect.min.js"></script>
+    <script src="../js/Hot.js"></script>
+
+</head>
+<body>
+<!--<div style="position: absolute;width: 100px; height: 100px;;"  id="motaikuang">-->
+    <!--<input  type="button" value="打开百度" onclick="ShowIframe('百度','http://202.114.114.34:8088/lmars/lmarsPanoMap.html',800,450)"><br>-->
+<!--</div>-->
+    <div class="p_body">
+        <div class="pleft">
+            <div xt="1" class="menu us shxw"><div class="tp"></div><div class="bt">社会新闻</div></div>
+            <div xt="0" class="menu us ychd"><div class="tp"></div><div class="bt">演出活动</div></div>
+            <div xt="2" class="menu us bxsh"><div class="tp"></div><div class="bt">百姓生活</div></div>
+            <div xt="3" class="menu us lyrd"><div class="tp"></div><div class="bt">旅游热点</div></div>
+            <div xt="4" class="menu us fwjy"><div class="tp"></div><div class="bt">房屋交易</div></div>
+            <div xt="5" class="menu us dzcx" style="margin-bottom:0px;"><div class="tp"></div><div class="bt">打折促销</div></div>
+        </div>
+        <div class="pcx">
+        <div class="pmap" id="map"></div>
+        <div class="psep"><div class="switch" title="隐藏"></div></div>
+        <div class="pright">
+            <div class="rdcx">
+            <div class="p_tjbx">
+                <div class="pb">关键字：</div>
+                <input id="key" type="text" class="wbk"/>
+                <div class="cx"></div>
+                <div class="pb" style="width:60px;">时间：</div>
+                <input id="txt_start" type="text" class="wbk" readonly="" style="width:75px;"/><div class="pb" style="width:20px; text-align:center;">—</div>
+                <input id="txt_end" type="text" class="wbk" readonly="" style="width:75px;"/>
+                <div id="btn_query" class="btn" style="float:left;padding:0 20px;margin-left:20px;">查询</div>
+            </div>
+            <div class="p_tjbx">
+                <div id="btn_plcs" class="btn cs">评论次数↓</div>
+                <div id="btn_ydcs" class="btn cs">阅读次数↓</div>
+                <div id="btn_dzcs" class="btn cs">点赞次数↓</div>
+            </div>
+            <div class="p_lbbx">
+                <div class="plist">
+                    <div class="ptr">
+                        <div class="ptp"><img src="../images/gd33.png" /></div>
+                        <div class="pnr">
+                            <div class="pbt">我是标题</div>
+                            <div class="pxq">我是详情我是详情我是详情我
+                            </div>
+                            <div class="ply">【社会新闻】2015-08-21 15:12:45</div>
+                            <div class="plyd">
+                                <div class="plcs">1</div>
+                                <div class="pl">读</div>
+                                <div class="plcs">0</div>
+                                <div class="pl">评</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page">
+                    <div id="div_sy" class="fy bky">|< 首页</div>
+                    <div id="div_syy" class="fy bky"><< 上一页</div>
+                    <div id="div_xyy" class="fy bky">下一页 >></div>
+                    <div id="div_my" class="fy bky">末页 >|</div>
+                    <div class="ym" style="width:26%">每页<span id="my">5</span>条 / 共<span id="div_zs">0</span>条</div>
+                    <div class="ym" style="width:26%;">页码：<span id="dqy">1</span>页 / <span id="zys">0</span>页</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+            <div class="rdtj" style="display:none;">
+                <div class="p_tjbx">
+                    <div class="pb" style="width:60px;">时间：</div>
+                    <input id="txt_tjks" type="text" class="wbk" readonly="" style="width:75px;"/><div class="pb" style="width:20px; text-align:center;">—</div>
+                    <input id="txt_tjjs" type="text" class="wbk" readonly="" style="width:75px;"/>
+                    <div id="div_tjcx" class="btn" style="float:left;padding:0 20px;margin-left:20px;">查询</div>
+                </div>
+                <div class="p_tjarea">
+                    <div class="psltqy">
+                        <div class="qybt">区域分布</div>
+                    </div>
+                    <div id="fl_zzt" class="pzztbx"></div>
+                    <div id="fl_bzt" class="pzztbx"></div>
+                    <div class="psltqy">
+                            <div class="qybt" style="width:85px">类型统计</div>
+                        <div id="div_tj2" class="qybt" style="width:85px;margin-top:6px;">
+                            <select id="slt_year">
+                                <option value="2016" selected="selected">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                            </select>
+                        </div>
+					</div>
+                    <div id="qb_zzt" class="pzztbx"></div>
+                    <div id="qb_bzt" class="pzztbx"></div>
+                </div>
+            </div>
+        <div class="pswitch" xt="1" title="统计"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <link href="../css/Theme.css" rel="stylesheet" />
+    <link href="../js/slt/jquery-ui.css" rel="stylesheet" />
+    <link href="../js/slt/multislt/multislt.css" rel="stylesheet" />
+    <script src="../js/jquery-1.7.2.min.js"></script>
+    <script src="../js/My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <script src="../js/slt/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="../js/slt/multislt/jquery.multiselect.js"></script>
+    <script src="../js/slt/multislt/jquery.multiselect.min.js"></script>
+    <script src="../js/echarts2.2.3/build/dist/echarts-all.js"></script>
+    <link href="../css/InfoWindow.css" rel="stylesheet" />
+    <link href="../css/map.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/dijit/themes/tundra/tundra.css">
+    <script type="text/javascript" src="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/init.js"></script>
+    <script src="../js/heatmap/heatmap.js"></script>
+    <script src="../js/MapControl.js"></script>
+    <script src="../js/Config.js"></script>
+    <script src="../js/Drag.js"></script>
+    <script src="../js/Theme.js"></script>
+</head>
+<body>
+    <div class="p_body">
+        <div class="p_top">
+            <div xt="0" class="tab us">销售分析</div>
+            <div xt="1" class="tab us">统计分析</div>
+        </div>
+        <div xt="0" class="p_info">
+            <div class="tjbx">
+                <div class="tjbt">销售来源：</div>
+                <div class="tjnr">
+                    <select id="slt_sjly">
+                        <option value="-1" selected="selected">全部</option>
+                        <option value="0">58同城</option>
+                        <option value="1">百姓网</option>
+                        <option value="2">赶集网</option>
+                    </select>
+                </div>
+                <div class="tjbt">卖家类别：</div>
+                <div class="tjnr">
+                    <select id="slt_mjlx">
+                        <option value="-1" selected="selected">全部</option>
+                        <option value="0">个人</option>
+                        <option value="1">商家</option>
+                    </select>
+                </div>
+                <div class="tjbt">销售类别：</div>
+                <div class="tjnr">
+                    <select id="slt_xslb">
+                        <option value="-1" selected="selected">全部</option>
+                        <option value="0">自行车</option>
+                        <option value="1">电动车</option>
+                        <option value="2">摩托车</option>
+                        <option value="3">笔记本</option>
+                        <option value="4">手机</option>
+                    </select>
+                </div>
+                <div class="tjbt">起始时间：</div>
+                <div class="tjnr"><input type="text" id="txt_start" readonly="" /></div>
+                <div class="tjbt">终止时间：</div>
+                <div class="tjnr"><input type="text" id="txt_end" readonly=""/></div>
+				
+				
+                <div class="tjbt" style="background:url(../images/fg.png) no-repeat 10px 10px">关键字：</div>
+                <div class="tjnr"><input type="text" class="gjz" id="txt_gjz" style="border:1px solid #10267c; color:#fff;" /></div>
+				
+                <!--<div class="tjbt">关键字：</div>
+                <div class="tjnr"><input type="text" id="txt_gjz" /></div>-->
+                <div class="btn_query">查询</div>
+            </div>
+            <div class="tjsep"><div class="updown" xt="1" title="隐藏"></div></div>
+            <div class="xsleft">
+                <div class="xstitle">
+                    <div class="ti" style="width:45px;">序号</div>
+                    <div class="ti">卖家姓名</div>
+                    <div class="ti">卖家手机号</div>
+                    <div class="ti" style="text-align:center;">发布数量</div>
+                </div>
+                <div class="xslist">
+                    <!--<div class="xstr"><div class="th">1</div><div class="td">张三李四</div><div class="td">11111111111</div><div class="td kd">21</div></div>-->
+                </div>
+                <div class="xspage" style="height:30px;">
+                    <div id="div_sy" class="fy bky">首页</div>
+                    <div id="div_syy" class="fy bky">上一页</div>
+                    <div id="div_xyy" class="fy bky">下一页</div>
+                    <div id="div_my" class="fy bky">末页</div>
+                    <div class="ym">共<span id="my">0</span>条</div>
+                    <div class="ym">页码<span id="dqy">1</span>/<span id="zys">0</span></div>
+                </div>
+            </div>
+            <div class="xsseq"><div class="showhide" xt="1" title="隐藏"></div></div>
+            <div class="xsright">
+                <div class="pmap" id="map"></div>
+                <div id="heatLayer" class="pmap"></div>
+                <div class="dtlist" style="display:none;">
+                    <div class="dttitle">详情<div class="close"></div></div>
+                    <div class="listbt">
+                        <div class="lb" style="width:50px;padding-left:15px;">编号</div>
+                        <div class="lb" style="width:120px;">商品图片</div>
+                        <div class="lb" style="width:180px;">交易地点</div>
+                        <div class="lb" style="width:80px;">卖家姓名</div>
+                        <div class="lb" style="width:120px;">卖家手机号</div>
+                        <div class="lb" style="width:85px;">类别</div>
+                        <div class="lb" style="width:60px;">主页</div>
+                    </div>
+                    <div class="dtlistbx" style="overflow:hidden; height:187px;">
+                        <div class="dltable">
+                            <!--<div class="dltr">
+                                <div class="td" style="width:50px;padding-left:15px;">1</div>
+                                <div class="td" style="width:120px;"><img src="../images/gd1.png" /></div>
+                                <div class="td" style="width:180px;">区域</div>
+                                <div class="td" style="width:80px;">卖家姓名</div>
+                                <div class="td" style="width:120px;">卖家手机号</div>
+                                <div class="td" style="width:85px;">类别</div>
+                                <div class="td kd" style="width:60px;">主页</div>
+                            </div>
+                            <div class="dltr">
+                                <div class="td" style="width:50px;padding-left:15px;">1</div>
+                                <div class="td" style="width:120px;">图片</div>
+                                <div class="td" style="width:180px;">区域</div>
+                                <div class="td" style="width:80px;">卖家姓名</div>
+                                <div class="td" style="width:120px;">卖家手机号</div>
+                                <div class="td" style="width:85px;">类别</div>
+                                <div class="td kd" style="width:60px;">主页</div>
+                            </div>-->
+                        </div>                        
+                        <div class="dlpage">
+                            <div id="dl_sy" class="fy bky">|< 首页</div>
+                            <div id="dl_syy" class="fy bky"><< 上一页</div>
+                            <div id="dl_xyy" class="fy bky">下一页 >></div>
+                            <div id="dl_my" class="fy bky">末页 >|</div>
+                            <div class="ym" style="width:210px;">每页<span id="dlmy">2</span>条 / 共<span id="dlzs">0</span>条</div>
+                            <div class="ym" style="width:165px;">页码：<span id="dldqy">1</span>页 / <span id="dlzys">0</span>页</div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="xsyt"></div>
+                <div xt="1" title="隐藏" class="ytkg"></div>-->
+            </div>
+        </div>
+        <div xt="1" class="p_info">
+            <div class="tjbx" style="background-color:#197daf;"><div class="pibt">卖家信息统计</div></div>
+            <div class="tjbx1">
+                <div class="tjarea" style="width:932px;">
+                    <div class="tjbt">商品来源：</div>
+                    <div class="tjnr">
+                        <select id="tj_mjlx">
+                        <option value="-1" selected="selected">全部</option>
+                            <option value="0">58同城</option>
+                            <option value="1">百姓网</option>
+                            <option value="2">赶集网</option>
+                            <!--<option value="3">跳骚市场</option>
+                            <option value="4">淘宝二手</option>
+                            <option value="5">得意生活</option>
+                            <option value="6">本地宝</option>
+                            <option value="7">豆瓣同城</option>
+                            <option value="8">大麦网</option>
+                            <option value="9">新郎微博</option>
+                            <option value="10">今日头条</option>
+                            <option value="11">途牛网</option>
+                            <option value="12">阿里旅游</option>
+                            <option value="13">帮帮网</option>-->
+                        </select>
+                    </div>
+                    <div class="tjbt">卖家类别：</div>
+                    <div class="tjnr">
+                        <select id="tj_sjly">
+                        <option value="-1" selected="selected">全部</option>
+                            <option value="0">个人</option>
+                            <option value="1">商家</option>
+                        </select>
+                    </div>
+                    <div class="tjbt">销售类别：</div>
+                    <div class="tjnr">
+                        <select id="tj_xslb">
+                        <option value="-1" selected="selected">全部</option>
+                            <option value="0">自行车</option>
+                            <option value="1">电动车</option>
+                            <option value="2">摩托车</option>
+                            <option value="3">笔记本</option>
+                            <option value="4">手机</option>
+                        </select>
+                    </div>
+                    <div class="tjbt">年份：</div>
+                    <div class="tjnr">
+                        <select id="mj_year">
+                        </select>
+                    </div>
+                    <div xt="5" class="btn_tj">前5名</div>
+                    <div xt="10" class="btn_tj">前10名</div>
+                    <div xt="15" class="btn_tj">前15名</div>
+                </div>
+            </div>
+            <div class="tjinfo">
+                <div class="tbbx">
+                    <div class="tbbt">
+                        <div class="tbth" style="text-align:center;width:8%;">编号</div>
+                        <div class="tbth">卖家姓名</div>
+                        <div class="tbth">卖家手机号</div>
+                        <div class="tbth">QQ号</div>
+                        <div class="tbth" style="width:17%;">区域</div>
+                        <div class="tbth">发布数量</div>
+                        <div class="tbth">主页</div>
+                    </div>
+                    <div class="tbbg">
+                        <div id="div_mjlist" class="tbbgbx">
+                            <!--<div class="tbtr">
+                                <div class="tbtd" style="text-align:center;width:8%;">1</div>
+                                <div class="tbtd">张三</div>
+                                <div class="tbtd">1111</div>
+                                <div class="tbtd">11111</div>
+                                <div class="tbtd" style="width:17%;">武汉市洪山区</div>
+                                <div class="tbtd">20</div>
+                                <div class="tbtd kd">网址</div>
+                            </div>-->
+                        </div>
+                        <div class="tjpage">
+                            <div id="mj_sy" class="fy bky">|< 首页</div>
+                            <div id="mj_syy" class="fy bky"><< 上一页</div>
+                            <div id="mj_xyy" class="fy bky">下一页 >></div>
+                            <div id="mj_my" class="fy bky">末页 >|</div>
+                            <div class="ym" style="width:26%">每页<span id="mjmy">5</span>条 / 共<span id="mj_zs">0</span>条</div>
+                            <div class="ym" style="width:26%;">页码：<span id="mjdqy">1</span>页 / <span id="mjzys">0</span>页</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="mjtb" class="tbbx"></div>
+            </div>
+            <div class="tjbx" style="background-color:#156995;"><div class="pibt">个人信息统计</div></div>
+            <div class="tjbx1">
+                <div class="tjarea" style="width:1010px;">
+                    <div class="tjbt">卖家姓名：</div>
+                    <div class="tjnr"><input type="text" id="txt_mjxm"/></div>
+                    <div class="tjbt">手机号：</div>
+                    <div class="tjnr"><input type="text" id="txt_sj" /></div>
+                    <div class="tjbt">QQ号：</div>
+                    <div class="tjnr"><input type="text" id="txt_QQ" /></div>
+                    <div class="tjbt">地点：</div>
+                    <div class="tjnr"><input type="text" id="txt_dd" /></div>
+                    <div class="tjbt">年份：</div>
+                    <div class="tjnr"><select id="gr_year">
+                        </select></div>
+                    <div class="btn_grcx">查询</div>
+                </div>
+            </div>
+            <div class="tjinfo">
+                <div class="tbbx">                    
+                    <div class="tbbt" style="background-color:#153b7a;">
+                        <div class="tbth" style="text-align:center;width:8%;">编号</div>
+                        <div class="tbth">卖家姓名</div>
+                        <div class="tbth">卖家手机号</div>
+                        <div class="tbth">QQ号</div>
+                        <div class="tbth" style="width:17%;">区域</div>
+                        <div class="tbth">发布数量</div>
+                        <div class="tbth kd">主页</div>
+                    </div>
+                    <div id="div_grlistbx" class="tbbg">
+                        <div id="div_grlist" class="tbbgbx">
+                            <!--<div class="tbtr">
+                                <div class="tbtd" style="text-align:center;width:8%;">1</div>
+                                <div class="tbtd">张三</div>
+                                <div class="tbtd">1111</div>
+                                <div class="tbtd">11111</div>
+                                <div class="tbtd" style="width:17%;">武汉市洪山区</div>
+                                <div class="tbtd">20</div>
+                                <div class="tbtd kd">网址</div>
+                            </div>-->
+                        </div>
+                        <div class="tjpage">
+                            <div id="gr_sy" class="fy bky">|< 首页</div>
+                            <div id="gr_syy" class="fy bky"><< 上一页</div>
+                            <div id="gr_xyy" class="fy bky">下一页 >></div>
+                            <div id="gr_my" class="fy bky">末页 >|</div>
+                            <div class="ym" style="width:26%">每页<span id="grmy">5</span>条 / 共<span id="gr_zs">0</span>条</div>
+                            <div class="ym" style="width:26%;">页码：<span id="grdqy">1</span>页 / <span id="grzys">0</span>页</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="grtb" class="tbbx"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

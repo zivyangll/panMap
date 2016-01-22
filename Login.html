@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <title>网络情报时空分析系统</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/pstyle.css" rel="stylesheet" />
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-text"></div>
+        <div class="login-panel">
+            <ul class="login-select">
+                <li class="active" data-logintype="jigou"><div>用户登录</div></li>
+            </ul>
+            <div class="login-p-box">
+                <input id="loginType" type="hidden" runat="server" value="jigou" />
+                <input id="txtUser" class="login-user-input" type="text" runat="server" tabindex="2" />
+                <input id="txtPwd" class="login-pwd-input" type="password" runat="server" tabindex="3" />
+                <div class="login-button-box">
+                    <input id="btnSubmit" class="login-submit-input" type="button" tabindex="4" />
+                </div>
+            </div>
+        </div>
+        <div class="login-footer"></div>
+    </div>
+</body>
+</html>

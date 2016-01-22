@@ -1,0 +1,944 @@
+﻿/*******************************************************************
+ 文件名：pstyle.css
+ 版  本：v1.0.0
+ 作  者：潘杰
+ 日  期：2014-10-30 09:39:42
+ 备  注：-
+*******************************************************************/
+
+body
+{
+    overflow: hidden;
+}
+.pbox
+{
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.tbox
+{
+    float: left;
+    height: 70px;
+    width: 100%;
+    background: url(../images/top_bg.png) repeat-x;
+}
+.logo
+{
+    float: left;
+    width: 660px;
+    height: 100%;
+    background: url(../images/logo.png) no-repeat 40px center;
+}
+.tbox .ttbox
+{
+    float: right;
+    height: 30px;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+.ttbox > span
+{
+    float: left;
+    height: 100%;
+    line-height: 30px;
+    font-size: 14px;
+    color: #e9f1fd;
+    font-weight: bold;
+}
+.ttbox > span > label
+{
+    font-size: 14px;
+    color: #e9f1fd;
+    font-weight: bold;
+}
+.ttbox > ul
+{
+    float: left;
+    height: 30px;
+    margin-left: 40px;
+}
+.ttbox > ul > li
+{
+    float: left;
+    height: 100%;
+    line-height: 30px;
+    color: #e9f1fd;
+    font-size: 12px;
+}
+.ttbox > ul > li.fgxline
+{
+    margin: 0 10px;
+    font-family: '新宋体';
+}
+.ttbox > ul > li:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.ttbox > ul > li.fgxline:hover
+{
+    text-decoration: none;
+    cursor: default;
+}
+.lbox
+{
+    float: left;
+    width: 220px;
+    background: url(../images/menu/menu-bg.png) repeat-y;
+}
+ul.menubox
+{
+    float: left;
+    width: 100%;
+}
+ul.menubox > li
+{
+    float: left;
+    width: 100%;
+    min-height: 42px;
+    background: url(../images/menu/menu-li.png) no-repeat;
+    cursor: pointer;
+}
+ul.menubox > li.last
+{
+    background-image: url(../images/menu/menu-li-last.png);
+}
+ul.menubox > li > img
+{
+    float: left;
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 9px 0;
+    margin-left: 15px;
+}
+ul.menubox > li > span
+{
+    float: left;
+    display: block;
+    width: 166px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #32568a;
+    font-weight: bold;
+    margin-left: 15px;
+}
+ul.menubox > li:hover
+{
+    background-image: url(../images/menu/menu-li-slt.png);
+} 
+ul.menubox > li.selected
+{
+    background-image: url(../images/menu/menu-li-slt.png);
+    cursor: default;
+}
+ul.menubox > li:hover > span, 
+ul.menubox > li.selected > span
+{
+    color: #fff;
+}
+ul.menubox > li.expand:hover
+{
+    background-image: url(../images/menu/menu-li.png);
+}
+ul.menubox > li.expand:hover > span
+{
+    color: #32568a;
+    cursor:default;
+}
+ul.menubox > li > ul
+{
+    float: left;
+    clear: both;
+    width: 220px;
+}
+ul.menubox > li > ul.none
+{
+    display: none;
+}
+ul.menubox > li > ul > li
+{
+    float: left;
+    width: 100%;
+    height: 42px;
+    background: url(../images/menu/menu-li-2.png) no-repeat;
+    cursor: pointer;
+}
+ul.menubox > li > ul > li.last
+{
+    background-image: url(../images/menu/menu-li-2-last.png);
+}
+ul.menubox > li > ul > li:first-child
+{
+    background-image: url(../images/menu/menu-li-2-first.png);
+}
+ul.menubox > li > ul > li > img
+{
+    float: left;
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: 12px 0;
+    margin-left: 36px;
+}
+ul.menubox > li > ul > li > span
+{
+    float: left;
+    display: block;
+    height: 42px;
+    width: 145px;
+    line-height: 42px;
+    font-size: 12px;
+    color: #4368a5;
+    font-weight: bold;
+    margin-left: 15px;
+}
+ul.menubox > li > ul > li:hover 
+{
+    background-image: url(../images/menu/menu-li-slt.png);
+}
+ul.menubox > li > ul > li.selected
+{
+    background-image: url(../images/menu/menu-li-slt.png);
+    cursor: default;
+}
+ul.menubox > li > ul > li:hover  > span, 
+ul.menubox > li > ul > li.selected > span
+{
+    color: #fff;
+}
+.rbox
+{
+    float: left;
+}
+
+.login-box
+{
+    float: left;
+    position: relative;
+    background: url(../images/login-bg.jpg) no-repeat center center;
+}
+.reg-box
+{
+    /*float: left;
+    position: relative;*/
+    background: url(../images/login-bg.jpg) repeat-y center top fixed;
+    overflow:auto;
+    width:100%;
+    height:100%;
+}
+.login-panel
+{
+    float: left;
+    width: 680px;
+    height: 312px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -340px;
+    margin-top: -156px;
+    background: url(../images/login-panel.png) no-repeat;
+}
+.reg-panel
+{
+    width: 700px;
+    margin:0 auto 20px auto;
+    padding-bottom:20px;
+    background:#fff;
+    box-shadow:1px 1px 2px 0px rgba(0,0,0,0.5);
+}
+.login-select {
+    margin-left: 240px;
+    height:60px;
+    width: 420px;
+    border-bottom:1px solid #e5e5e5;
+}
+    .login-select li {
+        float:left;
+        cursor:pointer;
+        width:50%;
+        text-align:center;
+        
+    }
+            .login-select li.active div {
+                border-bottom:2px solid #dda74f;
+                color:#dda74f;
+            }
+        .login-select li div {
+            margin:0 auto;
+            width:140px;
+            font-size:20px;
+            font-family:"微软雅黑","黑体";
+            color:#999999;
+            height:60px;
+            line-height:60px;
+            font-weight:bold;
+        }
+.reg-company-link {
+    color:#dda74f !important;
+    height:35px;
+    line-height:35px;
+    margin-left:20px;
+    font-size:15px;
+    font-weight:bold;
+}
+.login-p-box
+{
+    float: left;
+    margin-left: 240px;
+    margin-top: 20px;
+    height: 210px;
+    width: 420px;
+}
+.reg-title {
+    color:#dda74f !important;
+    height:60px;
+    line-height:60px;
+    width:420px;
+    margin:0 auto;
+    text-align:center;
+    border-bottom:1px solid #e5e5e5;
+    font-size:20px;
+    font-weight:bold;
+    font-family:"微软雅黑","黑体";
+}
+.reg-p-box
+{
+    margin:20px auto 0 auto;
+    
+    width: 420px;
+}
+.login-user-input
+{
+    float: left;
+    display: block;
+    clear: both;
+    width: 300px;
+    height: 48px;
+    background: url(../images/login-user.png) no-repeat;
+    border-style: none;
+    margin-left: 40px;
+    padding-left: 43px;
+    line-height: 48px;
+    font-size: 24px;
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    color: #666;
+    font-weight: bold;
+}
+.login-pwd-input
+{
+    float: left;
+    display: block;
+    clear: both;
+    width: 300px;
+    height: 48px;
+    background: url(../images/login-pwd.png) no-repeat;
+    border-style: none;
+    margin-left: 40px;
+    padding-left: 43px;
+    line-height: 48px;
+    font-size: 24px;
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    color: #666;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.reg-row {
+    width:343px;
+    margin:5px auto;
+    overflow:hidden;
+}
+    .reg-row .field-title {
+        height:25px;
+        line-height:25px;
+        font-size:12px;
+        font-family:"微软雅黑","黑体";
+    }
+.reg-input
+{
+    display: block;
+    clear: both;
+    width: 343px;
+    height: 25px;
+    background: url(../images/reg-input.png) no-repeat;
+    border-style: none;
+    padding-left: 3px;
+    line-height: 25px;
+    font-size: 12px;
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    color: #666;
+    font-weight: bold;
+}
+.reg-textarea
+{
+    max-height:100px;min-height:100px;
+    max-width:340px;min-width:340px;
+    overflow-x: hidden;background: #ECF5FA;
+    border: 1px solid rgb(206, 218, 227);
+    border-radius: 3px 3px;  line-height: 20px;
+}
+.login-button-box
+{
+    float: left;
+    width: 100%;
+    clear: both;
+    margin-top: 30px;
+    height: 35px;
+}
+.reg-button-box
+{
+    width: 100%;
+    clear: both;
+    margin-top: 30px;
+    height: 35px;
+}
+.login-submit-input
+{
+    float: left;
+    display: block;
+    border-style: none;
+    background: url(../images/login-btn.png) no-repeat;
+    width: 111px;
+    height: 35px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.reg-submit-input
+{
+    float: left;
+    display: block;
+    border-style: none;
+    background: url(../images/reg-btn.png) no-repeat;
+    width: 111px;
+    height: 35px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.login-error-box
+{
+    float: right;
+    display:block;
+    line-height: 35px;
+    font-size: 14px;
+    width: 210px;
+    height: 35px;
+    margin-right: 38px;
+    color: #d40909;
+    font-weight: bold;
+    display: none;
+}
+.login-text
+{
+    float: left;
+    position: absolute;
+    width: 626px;
+    height: 46px;
+    left: 50%;
+    margin-left: -313px;
+    background: url(../images/login-logo.png) no-repeat;
+    top: 50%;
+    margin-top: -248px;
+}
+.reg-text
+{
+    margin:30px auto;
+    width: 626px;
+    height: 40px;
+    line-height:40px;
+    background: url(../images/login-logo.png) no-repeat;
+}
+.login-footer
+{
+    float: left;
+    position: absolute;
+    background-color: #428eba;
+    bottom: 0px;
+    height: 45px;
+    width: 100%;
+}
+
+.fbox
+{
+    float: left;
+    position: relative;
+}
+.hide
+{
+    display: none;
+}
+
+.qh-box
+{
+    position: absolute;
+    float: left;
+	width: 400px;
+	height: 460px;
+	top: 28px;
+	left: 165px;
+	z-index: 7999;
+    background-color: #fff;
+	display: none;
+}
+.qh-box > .qhbox-tbox
+{
+    float: left;
+	width: 100%;
+	height: 30px;
+	background: url(../images/quhua/title-bg-box.png) no-repeat;
+}
+.qh-box > .qhbox-tbox > span
+{
+	float: left;
+	display: block;
+	height: 30px;
+	color: #888;
+	line-height: 30px;
+	font-size: 12px;
+	font-weight: normal;
+	background: url(../images/quhua/title-icon.png) no-repeat 15px center;
+	padding-left: 35px;
+}
+.qh-box > .qhbox-tbox> .qhbox-cbox
+{
+	float: right;
+	width: 30px;
+	height: 30px;
+	background: url(../images/quhua/title-rbox.png) no-repeat;
+}
+.qh-box > .qhbox-tbox> .qhbox-cbox > .qhbox-cbox-close
+{
+	float: left;
+	width: 100%;
+	height: 100%;
+	background: url(../images/quhua/title-close.png) no-repeat 16px 4px;
+	cursor: pointer;
+}
+.qh-box > .qhbox-ctbox
+{
+    position: relative;
+    float: left;
+	width: 398px;
+	height: 428px;
+	border: 1px solid #dadada;
+}
+.mfold-box
+{
+	float: left;
+	width: 100%;
+	height: 35px;
+	border-bottom: 1px solid #dadada;
+}
+.qhbox-ctbox > .ztree-query
+{
+	position: absolute;
+	float: left;
+	width: 381px;
+	height: 55px;
+	top: 36px;
+	left: 0;
+	background: url(../images/quhua/shadow-bg.png) repeat-x center bottom;
+}
+.qhbox-ctbox > .ztree-query > input[type="text"].qtxt
+{
+    float: left;
+	height: 25px;
+	border: 1px solid #adacad;
+	background: url(../images/quhua/text-bg.png) no-repeat;
+	padding: 0 5px;
+	font-size: 12px;
+	color: #444;
+	line-height: 25px;
+	border-right-style: none;
+	width: 200px;
+	margin: 11px 0 0 50px;
+}
+.qhbox-ctbox > .ztree-query > input[type="text"].qtxt.wmark
+{
+	color: #d6d6d6;
+}
+.qhbox-ctbox > .ztree-query > input[type="button"].qbtn
+{
+    float: left;
+	height: 27px;
+	border: 1px solid #9eb0bc;
+	background: url(../images/quhua/button-bg.png) repeat-x;
+	padding: 0 10px;
+	line-height: 25px;
+	font-size: 12px;
+	color: #424f6f;
+	cursor: pointer;
+	margin: 11px 0 0 0;
+	width: 80px;
+}
+.qhbox-ctbox > .zqry-box
+{
+	position: absolute;
+	float: left;
+	border: 1px solid #c6c6c6;
+	background-color: #fff;
+	top: 75px;
+	left: 50px;
+	max-width: 289px;
+	z-index: 8000;
+	display: none;
+}
+.qhbox-ctbox > .zqry-box > ul
+{
+	float: left;
+}
+.qhbox-ctbox > .zqry-box > ul > li
+{
+	float: left;
+	clear: both;
+	min-width: 210px;
+	max-width: 289px;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	white-space: nowrap;
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.qhbox-ctbox > .zqry-box > ul > li.selected
+{
+	background-color: #e4effb;
+	cursor: pointer;
+}
+.qhbox-ctbox > .zqry-box > ul > li > span
+{
+	margin: 0 5px;
+	font-size: 12px;
+	color: #444;
+}
+.qhbox-ctbox > .ztree-box
+{
+	float: left;
+	overflow: hidden;
+	overflow-y: auto;
+	width: 100%;
+	height: 392px;
+}
+.qhbox-ctbox > .ztree-box > .ztree-cbox
+{
+	float: left;
+	width: 358px;
+	padding: 52px 20px 0 20px;
+}
+.tbar-qh-box
+{
+    position: absolute;
+	float: left;
+	height: 100%;
+    left: 20px;
+    top: 4px;
+}
+.tbar-qh-box > span
+{
+	float: left;
+	display: block;
+	color: #777;
+	line-height: 30px;
+	font-weight: bold;
+}
+.tbar-qh-box > .tbar-combo
+{
+	float: left;
+	height: 20px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	margin-top: 4px;
+}
+.tbar-qh-box > .tbar-combo:hover
+{
+	border: 1px solid #8490cc;
+	cursor: pointer;
+}
+.tbar-qh-box > .tbar-combo > label
+{
+	float: left;
+	display: block;
+    min-width: 100px;
+	line-height: 20px;
+	color: #333;
+	font-size: 12px;
+	padding: 0px 10px;
+}
+.tbar-qh-box > .tbar-combo > .combo-jt
+{
+	float: right;
+	height: 100%;
+	width: 15px;
+	background: url(../images/quhua/jt-down.png) no-repeat left center;
+}
+
+.easyui-toolbar
+{
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    padding: 5px;
+}
+.easyui-border-no
+{
+    border-style: none;
+}
+.easyui-operate 
+{
+    float: left;
+    width: 100%;
+}
+.easyui-operate > a
+{
+    color: #db6b0c;
+    margin-left: 3px;
+}
+.easyui-operate > a:first-child
+{
+    margin-left: 0px;
+}
+.easyui-cbox
+{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+.easyui-cbox > .easyui-ctab
+{
+    float: left;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.easyui-ctab > table
+{
+    float: left;
+    width: 100%;
+}
+.easyui-ctab > table tr td
+{
+    height: 29px;
+    border-bottom: 1px dotted #ddd;
+    border-left: 1px dotted #ddd;
+    padding-left: 20px;
+}
+.easyui-ctab > table tr td:first-child
+{
+    border-left-style: none;
+    width: 240px;
+    padding-right: 20px;
+    padding-left: 0px;
+    text-align: right;
+    background-color: #fdfdfd;
+}
+.easyui-ctab > table tr td > img
+{
+    display: block;
+    min-width: 18px;
+    min-height: 18px;
+    max-width: 24px;
+    max-height: 24px;
+}
+.easyui-ctab > table tr td > img[title]
+{
+    cursor: pointer;
+}
+.easyui-ctab > table tr td > input[type='text'],
+.easyui-ctab > table tr td > input[type='password']
+{
+    display: block;
+    height: 23px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    line-height: 23px;
+    width: 90%;
+    padding: 0 2px;
+}
+.easyui-tree-cbox 
+{
+    float: left;
+    width: 100%;
+    padding: 10px 0;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.easyui-td-span
+{
+    float: left;
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+    border-right: 1px dotted #ddd;
+}
+.easyui-td-conten
+{
+    float: left;
+    display: block;
+    text-align: left;
+    width: 100%; 
+    clear: both; 
+    height: auto; 
+    border-top: 1px dotted #ddd;
+    padding: 5px 0;
+}
+.easyui-td-conten > span
+{
+    display: block;
+    color: #333;
+    font-size: 12px;
+    text-align: left;
+    line-height: 18px;
+    margin: 0 10px;
+}
+.tbar-date-box
+{
+    position: absolute;
+	float: left;
+	height: 100%;
+    left: 300px;
+    top: 4px;
+}
+.tbar-date-box > span
+{
+    float: left;
+	display: block;
+	color: #777;
+	line-height: 30px;
+	font-weight: bold;
+}
+.tbar-date-box > span > label
+{
+    float: left;
+	display: block;
+	color: #777;
+	line-height: 30px;
+	font-weight: bold;
+}
+.tbar-date-box > input[type='text']
+{
+	float: left;
+	height: 20px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	margin-top: 4px;
+    font-size: 12px;
+    line-height: 20px;
+    padding-left: 5px;
+    color: #777;
+}
+.tbar-date-box > input[type='text']:hover
+{
+	border: 1px solid #8490cc;
+	cursor: pointer;
+}
+.tbar-bar
+{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 39px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.tbar-notice
+{
+    float: right;
+    position: relative;
+    width: 500px;
+    height: 38px;
+    margin-top: 1px;
+    background: url(../images/notice.png) no-repeat 15px center;
+    margin-right: 10px;
+}
+.tbar-notice > marquee
+{
+    position: absolute;
+    width: 360px;
+    height: 24px;
+    margin: 0;
+    top: -44px;
+    top: 6px\9;
+    margin-left: 50px\9;
+}
+.tbar-notice > marquee > ul
+{
+    float: left;
+    width: 360px;
+}
+.tbar-notice > marquee > ul > li
+{
+    float: left;
+    clear: both;
+    width: 360px;
+    height: 24px;
+    line-height: 24px;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #c10709;
+}
+.tbar-notice > marquee > ul > li:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.tbar-notice > span
+{
+    float: right;
+    display: block;
+    height: 38px;
+    width: 40px;
+    line-height: 38px;
+    margin-left: 20px;
+    color: #077ce4;
+    cursor: pointer;
+}
+.tbar-notice > span:hover
+{
+    text-decoration: underline;
+}
+.tbar-notice > input[type='button']
+{
+    float: right;
+    display: block;
+    width: 70px;
+    height: 24px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    text-align: center;
+    font-size: 12px;
+    color: #444;
+    margin-top: 7px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+a
+{
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: none;
+
+}
+.tboxBtn
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: 23px;
+    line-height: 25px;
+    padding: 0 5px;
+    border: 1px solid lightgray;
+    text-align: center;
+    background: white;
+}

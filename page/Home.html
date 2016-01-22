@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-9"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <title></title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <link href="../js/slt/jquery-ui.css" rel="stylesheet" />
+    <link href="../css/Style.css" rel="stylesheet" />
+    <script src="../js/jquery-1.7.2.min.js"></script>
+    <script src="../js/echarts2.2.3/build/dist/echarts-all.js"></script>
+    <link href="../css/InfoWindow.css" rel="stylesheet" />
+    <link href="../css/map.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/dijit/themes/tundra/tundra.css">
+    <script type="text/javascript" src="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/init.js"></script>
+    <script src="../js/heatmap/heatmap.js"></script>
+    <script src="../js/MapControl.js"></script>
+    <script src="../js/Config.js"></script>
+    <script src="../js/Drag.js"></script>
+    <script src="../js/Home.js"></script>
+</head>
+<body>
+    <div class="p_body">
+        <div class="p_top">
+            <div class="p_menubx">
+                <div xt="0" class="sjitme">昨天</div>
+                <div xt="1" class="sjitme">今天</div>
+                <div xt="2" class="sjitme">本周</div>
+                <div xt="3" class="sjitme">本月</div>
+                <div xt="4" class="sjitme">近7天 </div>
+                <div xt="5" class="sjitme">近30天</div>
+                <div xt="6" class="sjitme">近90天</div>
+                <div xt="7" class="sjitme">自定义</div>
+                <div class="zdybx"><input type="text" id="txt_zdy" /><div class="cx"></div></div>
+            </div>
+            <div class="maqueebx">
+                <marquee id="affiche" style="color:#fff;line-height:42px;" align="middle" behavior="scroll" direction="left" width="100%" height="100%" hspace="10" vspace="0" loop="-1" scrollamount="10"
+scrolldelay="200" onMouseOut="this.start()" onMouseOver="this.stop()">天津爆炸事故已致112人遇难 95人失踪</marquee>
+            </div>
+        </div>
+        <div class="p_info">
+            <div class="p_left">
+                <div class="psltqy">
+                    <div class="qybt">主题类型分布</div>
+                </div>
+                <div id="fl_tb" class="pzztbx"></div>
+                <div class="psltqy">
+                    <div class="qybt">主题类型统计</div>
+                </div>
+                <div id="qb_tb" class="pzztbx"></div>
+            </div>
+            <div class="p_center">
+                <div class="cmk">
+                    <div class="mk" style="background-color:#31a31a"><div class="mc">社会新闻</div><div class="sz">0</div></div>
+                    <div class="mk" style="background-color:#f58f13"><div class="mc">演出活动</div><div class="sz">0</div></div>
+                    <div class="mk" style="background-color:#3598db"><div class="mc">商品交易</div><div class="sz">0</div></div>
+                    <div class="mk" style="background-color:#cd4b27"><div class="mc">百姓生活</div><div class="sz">0</div></div>
+                    <div class="mk" style="background-color:#7c0086"><div class="mc">交房信息</div><div class="sz">0</div></div>
+                    <div class="mk" style="margin-right:0;background-color:#dd3794"><div class="mc">打折促销</div><div class="sz">0</div></div>
+                </div>
+                <div id="map" class="pmap">
+                    <div class="base-map">
+                        <div  class="base-map-switch base-map-switch-active">
+                            <select  id="selectSS" onchange="showPOIOnMap()" >
+                                <option value="警情">警情</option>
+                                <option value="民生">民生</option>
+                                <option value="案件">案件</option>
+                                <option value="社会">社会</option>
+                                <option value="人员">人员</option>
+                                <option value="服务">服务</option>
+                                <option value="管理">管理</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                        <div  class="base-map-switch base-map-switch-active" ><input id="weather_chk" type="checkbox" onclick="showWeatherInfo()"></div>
+                        <div id="weather" style="padding: 4px 8px; float: left;background:#e6edf1;font-weight: bold;color: #4d4d4d;">实时天气
+                        </div>
+                        <div  class="base-map-switch base-map-switch-active" ><input id="pan_chk" type="checkbox" onclick="showPanImgs()"></div>
+                        <div id="pan1" style="padding: 4px 8px; float: left;background:#e6edf1;font-weight: bold;color: #4d4d4d;">街景展示
+                        </div>
+                        <div  class="base-map-switch base-map-switch-active" ><input id="vec3" type="checkbox" onclick="drawHeatLayer()"></div>
+                        <div id="vec" style="padding: 4px 8px; float: left;background:#e6edf1;font-weight: bold;color: #4d4d4d;">热点图
+                        </div>
+                        <div id="vec2" class="base-map-switch base-map-switch-active" onclick="clearLayer()">清除
+                        </div>
+                        </div>
+                    <div id="div_weather" class="weather"></div>
+                </div>
+                <div id="heatLayer" class="pmap"></div>
+            </div>
+            <div class="p_right">
+                <div class="sgzbx">
+                    <!--<marquee direction=up behavior=scroll loop=3 scrollamount=1 scrolldelay=2  height=100% width=100% hspace=0 vspace=0 onmouseover=this.stop() onmouseout=this.start()>
+                    <ul class="ulsgz">
+                    <li class="ptr1" style="margin-top:15px;">
+                        <div class="zsj"></div>
+                        <div class="ztbt"></div>
+                        <div class="zbt">2015-08-18</div>
+                    </li>
+                    <li class="ptr">
+                        <div class="zsj">18:23</div>
+                        <div class="ztb"></div>
+                        <div class="znr">
+                            <div class="kbx">
+                                <div class="xwbt">四类抗战老兵获一次性补助5千元9月前发放</div>
+                                <img src="../images/gd1.png" class="gdtp" width="145" height="100"/>
+                                <div class="xwly">
+                                    <div class="ly">来源：网易新闻</div>
+                                    <div class="gt">124跟帖</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="ptr">
+                        <div class="zsj">15:12</div>
+                        <div class="ztb"></div>
+                        <div class="znr">
+                            <div class="kbx">
+                                <div class="xwbt">某些官员“退二不休”落马前还在插手干政</div>
+                                <img src="../images/gd2.png" class="gdtp" width="145" height="100"/>
+                                <div class="xwly">
+                                    <div class="ly">来源：网易新闻</div>
+                                    <div class="gt">100跟帖</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="ptr1">
+                        <div class="zsj"></div>
+                        <div class="ztbt"></div>
+                        <div class="zbt">2015-08-15</div>
+                    </li>
+                    <li class="ptr">
+                        <div class="zsj">18:88</div>
+                        <div class="ztb"></div>
+                        <div class="znr">
+                            <div class="kbx">
+                                <div class="xwbt">李克强抵达天津重大火灾爆炸事故现场</div>
+                                <img src="../images/gd3.png" class="gdtp" width="145" height="100"/>
+                                <div class="xwly">
+                                    <div class="ly">来源：网易新闻</div>
+                                    <div class="gt">30跟帖</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    </ul><!--</marquee>-->
+                 </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

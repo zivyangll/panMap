@@ -1,0 +1,41 @@
+        .base-map-ano{
+            position: absolute;
+            right: 0pt;
+            top:18pt;
+            background: #e6edf1;
+            border: #96aed1 1px solid;
+            padding: 4px 5px;
+            padding-left: 0px;
+            padding-top: 0px;
+            display: none;
+            font-weight: normal;
+        }
+        .base-map{
+            position: absolute;
+            right: 15pt;
+            top:8pt;
+            background: #f0f0f0;
+            border: #96aed1 1px solid;
+            width: auto;
+            height: auto;
+            z-index: 99;
+            font:normal 11px "ËÎÌו",Arial;
+            color:#868686;
+        }
+        .base-map-switch{
+            padding: 4px 8px;
+            float: left;
+        }
+        .base-map-switch-active{
+            background:#e6edf1;
+            font-weight: bold;
+            color: #4d4d4d;
+        }
+        .base-map-switch:hover{
+            cursor: pointer;
+        }
+        .base-map-switch-center{
+            border: 1px #96aed1 solid;
+            border-top:none;
+            border-bottom:none;
+        }

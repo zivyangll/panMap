@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <link href="../js/slt/jquery-ui.css" rel="stylesheet" />
+    <link href="../js/slt/multislt/multislt.css" rel="stylesheet" />
+    <link href="../css/Theme.css" rel="stylesheet" />
+    <script src="../js/jquery-1.7.2.min.js"></script>
+    <script src="../js/My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <script src="../js/slt/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="../js/slt/multislt/jquery.multiselect.js"></script>
+    <script src="../js/slt/multislt/jquery.multiselect.min.js"></script>
+    <script src="../js/echarts2.2.3/build/dist/echarts-all.js"></script>
+    <link href="../css/InfoWindow.css" rel="stylesheet" />
+    <link href="../css/map.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" type="text/css" href="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/dijit/themes/tundra/tundra.css">
+    <script type="text/javascript" src="http://202.114.114.34:8878/arcgis_js_api/library/3.12/3.12/init.js"></script>
+    <script src="../js/heatmap/heatmap.js"></script>
+    <script src="../js/MapControl.js"></script>
+    <script src="../js/Config.js"></script>
+    <script src="../js/Cata.js"></script>
+</head>
+<body>
+    <div class="p_body">
+        <!--<div xt="0" class="p_info">-->
+            <div class="tjbx">
+                <div class="tjbt">主题类型：</div>
+                <div class="tjnr">
+                    <select id="slt_ztlx">
+                        <option value="-1" selected="selected">全部</option>
+                        <option value="1">案件</option>
+                        <option value="2">民生</option>
+                        <option value="3">人员</option>
+                        <option value="4">服务</option>
+                        <option value="5">管理</option>
+                        <option value="6">社会</option>
+                        <option value="0">其他</option>
+                    </select>
+                </div>
+                <div class="tjbt">地区：</div>
+                <div class="tjnr">
+                    <select id="slt_area">
+                        <option value="-1" selected="selected">全部</option>
+                        <option value="1">黄陂区</option>
+                        <option value="2">汉南区</option>
+                        <option value="3">汉阳区</option>
+                        <option value="4">江夏区</option>
+                        <option value="5">江岸区</option>
+                        <option value="6">江汉区</option>
+                        <option value="7">洪山区</option>
+                        <option value="8">硚口区</option>
+                        <option value="9">蔡甸区</option>
+                        <option value="10">青山区</option>
+                        <option value="11">东湖新技术开发区</option>
+                        <option value="12">新洲区</option>
+                        <option value="13">武昌区</option>
+                        <option value="14">东湖生态旅游风景区</option>
+                        <option value="15">东西湖区</option>
+                        <option value="16">化学工业分局</option>
+                        <option value="17">开发区分局</option>
+                        <option value="18">水上分局</option>
+                        <option value="0">其它</option>
+                    </select>
+                </div>
+                <!--<div class="tjbt">热点区域：</div>
+                <div id="div_rdqy" class="tjnr">
+                    <select id="slt_rdqy">
+                    </select>
+                </div>-->
+                <div class="tjbt">起始时间：</div>
+                <div class="tjnr"><input type="text" id="txt_start" readonly="" /></div>
+                <div class="tjbt">终止时间：</div>
+                <div class="tjnr"><input type="text" id="txt_end" readonly=""/></div>
+                <div class="tjbt" style="background:url(../images/fg.png) no-repeat 10px 10px">关键字：</div>
+                <div class="tjnr"><input type="text" class="gjz" id="txt_gjz" style="border:1px solid #10267c; color:#fff;" /></div>
+                <div class="btn_query">查询</div>
+            </div>
+            <div class="tjsep"><div class="updown" xt="1" title="隐藏"></div></div>
+            <div class="xsleft" style="width:566px">
+                <div id="div_list" class="xslist">
+                    <div class="catr">
+                        <div class="catd">
+                            <div class="cabt"><div class="xh">1</div><div class="bt">我是标题我是标题我是标题我是标题</div></div>
+                            <div class="canr"><div class="bz cs" style="margin-top:5px;"><select><option value="1">案件</option></select></div><div class="dz">我是地址我是地址我是地址我是地址</div></div>
+                            <div class="canr"><div class="bz">【人民网】</div><div class="sj">2015-08-24</div>
+                                <div class="pl">
+                                    <div class="p_save">保存</div>
+                                    <div class="p_del">删除</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catp"><img src="../images/gd1.png" /></div>
+                    </div>
+                    <!--<div class="catr">
+                        <div class="catd">
+                            <div class="cabt"><div class="xh">1</div><div class="bt">【武汉折扣爆料团】鲁巷广场的星期六特卖30元起</div></div>
+                            <div class="canr"><div class="bz cs">民生类别</div><div class="dz"></div></div>
+                            <div class="canr"><div class="bz">【人民网】</div><div class="sj">2015-08-24 12:25:25</div><div class="pltp"></div><div class="pl">29</div></div>
+                        </div><div class="catp"><img src="../images/gd1.png" /></div></div><div class="catr"><div class="catd"><div class="cabt"><div class="xh">2</div><div class="bt">【武汉折扣爆料团】武商广场化妆品满199减40了</div></div><div class="canr"><div class="bz cs">民生类别</div><div class="dz"></div></div><div class="canr"><div class="bz">【人民网】</div><div class="sj">2015-08-24 12:25:25</div><div class="pltp"></div><div class="pl">29</div></div></div><div class="catp"><img src="../images/gd1.png" /></div></div><div class="catr"><div class="catd"><div class="cabt"><div class="xh">3</div><div class="bt">【武汉折扣爆料团】鲁广星期六30元起</div></div><div class="canr"><div class="bz cs">民生类别</div><div class="dz"></div></div><div class="canr"><div class="bz">【人民网】</div><div class="sj">2015-08-24 12:25:25</div><div class="pltp"></div><div class="pl">29</div></div></div><div class="catp"><img src="../images/gd1.png" /></div></div><div class="catr"><div class="catd"><div class="cabt"><div class="xh">4</div><div class="bt">【武汉折扣爆料团】司门口的美邦2折！买了7件才160！！！！</div></div><div class="canr"><div class="bz cs">民生类别</div><div class="dz"></div></div><div class="canr"><div class="bz">【人民网】</div><div class="sj">2015-08-24 12:25:25</div><div class="pltp"></div><div class="pl">29</div></div></div><div class="catp"><img src="../images/gd1.png" /></div></div><div class="catr"><div class="catd"><div class="cabt"><div class="xh">5</div><div class="bt">【武汉折扣爆料团】两双凉鞋100元，觉得划算的来点赞撒</div></div><div class="canr"><div class="bz cs">民生类别</div><div class="dz"></div></div><div class="canr"><div class="bz">【人民网】</div><div class="sj">2015-08-24 12:25:25</div><div class="pltp"></div><div class="pl">29</div></div></div><div class="catp"><img src="../images/gd1.png" /></div></div>-->
+                </div>
+                <div class="xspage" style="height:30px;width:370px">
+                    <div id="div_sy" class="fy bky" style="width:50px;">首页</div>
+                    <div id="div_syy" class="fy bky" style="width:50px;">上一页</div>
+                    <div id="div_xyy" class="fy bky" style="width:50px;">下一页</div>
+                    <div id="div_my" class="fy bky" style="width:50px;">末页</div>
+                    <div class="ym" style="width:90px;">共<span id="my">0</span>条</div>
+                    <div class="ym" style="width:80px;">页码<span id="dqy">1</span>/<span id="zys">0</span></div>
+                </div>
+            </div>
+            <div class="xsseq"><div class="showhide" xt="1" title="隐藏"></div></div>
+            <div class="xsright">
+                <div class="pmap" id="map"></div>
+                <div id="heatLayer" class="pmap"></div>
+                <!--<div class="xsyt"></div>
+                <div xt="1" title="隐藏" class="ytkg"></div>-->
+            </div>
+       <!-- </div>-->
+    </div>
+</body>
+</html>
